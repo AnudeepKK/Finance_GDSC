@@ -107,6 +107,8 @@ import { storage } from "../firebase/config";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
 import { v4 } from "uuid";
 import axios from "axios";
+import { useTranslation } from 'react-i18next';
+
 
 
 export default function ImageUpload() {
@@ -116,6 +118,8 @@ export default function ImageUpload() {
   const [aadharList, setAadharList] = useState([]);
   const [panList, setPanList] = useState([]);
   const [passbookList, setPassbookList] = useState([]);
+
+  const { t } = useTranslation();
 
   const imageListRef = ref(storage, "images/");
 
@@ -242,7 +246,7 @@ export default function ImageUpload() {
 
   return (
     <div>
-      <h1 className="text-black-500 text-center text-5xl">UPLOAD DOCUMENTS</h1>
+      <h1 className="text-black-500 text-center text-5xl">{t('upload')}</h1>
       <div className="flex justify-between mt-5 mx-3">
         {/* Aadhar Section */}
         <div className="border border-black p-4">
@@ -255,7 +259,7 @@ export default function ImageUpload() {
             onClick={() => uploadAdharImage(aadharImage, setAadharList, "aadhar")}
             className="bg-red-500 px-3 rounded-2xl"
           >
-            Upload Aadhar
+            {t('aadhar')}
           </button>
           {aadharList.map((url) => (
             <div key={url} className="flex mt-2 justify-center">
@@ -279,7 +283,7 @@ export default function ImageUpload() {
             onClick={() => uploadPanImage(panImage, setPanList, "pan")}
             className="bg-red-500 px-3 rounded-2xl"
           >
-            Upload PAN
+            {t('pan')}
           </button>
           {panList.map((url) => (
             <div key={url} className="flex mt-2 justify-center">
@@ -305,7 +309,7 @@ export default function ImageUpload() {
             }
             className="bg-red-500 px-3 rounded-2xl"
           >
-            Upload Passbook
+           {t('passbook')}
           </button>
           {passbookList.map((url) => (
             <div key={url} className="flex mt-2 justify-center">

@@ -1,5 +1,5 @@
 import ImageUpload from "./components/imageUpload";
-import Registration from "./components/Register";
+import Registration from "./components/Login/Register";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./components/Language/LanguageContext";
 function App() {

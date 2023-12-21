@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, CardContent, TextField, Typography } from '@mui/material';
-import { auth, RecaptchaVerifier, signInWithPhoneNumber } from '../firebase/config';
+import { auth, RecaptchaVerifier, signInWithPhoneNumber } from '../../firebase/config';
 import { useTranslation } from 'react-i18next';
-import { useLanguage } from '../components/Language/LanguageContext';
+import { useLanguage } from '../Language/LanguageContext';
 import { useNavigate } from 'react-router-dom';
 
 import {
@@ -73,7 +73,7 @@ const Login = () => {
       const confirmationResult = window.confirmationResult;
       try {
         await confirmationResult.confirm(enteredOtp);
-        alert('User signed in successfully');
+        alert(`${t('signin')}`);
 
         setDoc(doc(db, "Participant", phone), {
           name: name,
@@ -95,7 +95,7 @@ const Login = () => {
         navigate('/');
       } catch (error) {
         console.error('Error verifying code:', error.message);
-        alert("User couldn't sign in (bad verification code?)");
+        alert(`${t("errorin")}`);
       }
     }
   };
@@ -113,7 +113,7 @@ const Login = () => {
     changeLanguage(selectedLang);
 
     i18n.changeLanguage(selectedLang, () => {
-      const newUrl = `http://localhost:3001/register/?lng=${selectedLang}`;
+      const newUrl = `http://localhost:3000/register/?lng=${selectedLang}`;
       window.history.pushState({ path: newUrl }, "", newUrl);
       window.location.reload();
     });
