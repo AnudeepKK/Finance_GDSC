@@ -22,7 +22,7 @@ const languages = [
   { value: 'kn', text: 'Kannada' },
 ];
 
-const Login = () => {
+const Register = () => {
   const { t, i18n } = useTranslation();
   const { selectedLanguage, changeLanguage } = useLanguage();
   const [phone, setPhone] = useState('+91');
@@ -113,7 +113,7 @@ const Login = () => {
     changeLanguage(selectedLang);
 
     i18n.changeLanguage(selectedLang, () => {
-      const newUrl = `http://localhost:3000/register/?lng=${selectedLang}`;
+      const newUrl = `http://localhost:3001/register/?lng=${selectedLang}`;
       window.history.pushState({ path: newUrl }, "", newUrl);
       window.location.reload();
     });
@@ -222,4 +222,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
