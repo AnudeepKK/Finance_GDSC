@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 const Home = () => {
   const [userData, setUserData] = useState(null);
   const { phoneNumber } = usePhoneNumber();
+  
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -37,6 +38,8 @@ const Home = () => {
 
     fetchData();
   }, [phoneNumber]);
+
+  console.log(phoneNumber);
 
   return (
     <div>

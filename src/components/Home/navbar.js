@@ -6,6 +6,7 @@ import { Link as ScrollLink, Element } from 'react-scroll';
 
 const HomePage = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);

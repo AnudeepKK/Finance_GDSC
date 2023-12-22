@@ -9,7 +9,7 @@ import { useLanguage } from '../Language/LanguageContext';
 
 
 const Login = () => {
-  const { phoneNumber, setPhoneNumber } = usePhoneNumber();
+const { setPhoneNumber,phoneNumber } = usePhoneNumber(); 
   const { selectedLanguage, changeLanguage } = useLanguage();
   const [hasFilled, setHasFilled] = useState(false);
   const [otp, setOtp] = useState('');

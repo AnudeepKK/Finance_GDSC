@@ -32,7 +32,7 @@ const Chatbot = () => {
           return (
             <div>
               {t('q1')}<br />
-              {t('a1')}<br/>
+              {t('a11')}<br/>
               {t('q2')}<br/>
               {t('a2')}
             </div>
